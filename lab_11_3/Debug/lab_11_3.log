@@ -1,0 +1,10 @@
+﻿  lab_11_3.cpp
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(233,65): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(249,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(265,71): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(281,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(297,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(462,11): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(501,11): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+C:\Users\Arsen\source\repos\lab_11_3\lab_11_3\lab_11_3.cpp(545,11): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+  lab_11_3.vcxproj -> C:\Users\Arsen\source\repos\lab_11_3\Debug\lab_11_3.exe
