@@ -32,7 +32,7 @@ int SearchOne(char* fname);
 int SearchTwo(char* fname);
 void Sort(char* fname);
 void IndexSort(char* fname, char* gname);
-int Search(char* fname, const string prizv, const Specialnist special, const int avarage);
+int Search(char* fname);
 
 int main()
 {
@@ -41,9 +41,7 @@ int main()
 	char fname[61];
 	char gname[61];
 	char ch;
-	Specialnist special;
-	int ispec, avar, found;
-	string prizv;
+	int found;
 	do
 	{
 		cout << endl;
@@ -127,17 +125,13 @@ int main()
 			cout << "Назва файлу: "; cin.getline(fname, sizeof(fname));
 			cout << endl;
 			Sort(fname);
-			cout << "Введіть ключі пошуку: " << endl << endl;
-			cout << "cпеціальність (0 - комп. науки, 1 - мат і економ, 2 - інформ, 3 - фіз і інформ, 4 - труд. навч): ";
-			cin >> ispec;
-			special = (Specialnist)ispec;
-			cout << " прізвище: "; cin >> prizv;
-			cout << " середній бал студента: "; cin >> avar;
-			cout << endl;
-			if ((found = Search(fname, prizv, special, avar)) != -1)
+			if ((found = Search(fname)) != -1) {
 				cout << "Знайдено студента в позиції \'" << found + 1 << "\"" << endl;
-			else
+				LoadFile(fname);
+			}
+			else {
 				cout << "Шуканого студента не знайдено" << endl;
+			}
 			break;
 		default:
 			cout << "Помилка вводу! ";
@@ -469,6 +463,8 @@ void Sort(char* fname) {
 	f.close();
 	for (int i = 0; i < size - 1; i++) { // Сортування бульбашкою
 		for (int j = size - 1; j > i; j--) {
+			string prizvOne = student[j].prizv;
+			string prizvTwo = student[j - 1].prizv;
 			if ((student[j].avarage < student[j - 1].avarage)
 				||
 				(student[j].avarage == student[j - 1].avarage &&
@@ -476,7 +472,7 @@ void Sort(char* fname) {
 				||
 				(student[j].avarage == student[j - 1].avarage &&
 					student[j].spec == student[j - 1].spec &&
-					student[j].prizv < student[j - 1].prizv))
+					prizvOne < prizvTwo))
 			{
 				temp = student[j];
 				student[j] = student[j - 1];
@@ -507,6 +503,8 @@ void IndexSort(char* fname, char* gname) {
 	f.read((char*)student, size * sizeof(Student)); // зчитуюються студенти з файлу 
 	for (int i = 0; i < size - 1; i++) { // Сортування бульбашкою
 		for (int j = size - 1; j > i; j--) {
+			string prizvOne = student[j].prizv;
+			string prizvTwo = student[j - 1].prizv;
 			if ((student[j].avarage < student[j - 1].avarage)
 				||
 				(student[j].avarage == student[j - 1].avarage &&
@@ -514,7 +512,7 @@ void IndexSort(char* fname, char* gname) {
 				||
 				(student[j].avarage == student[j - 1].avarage &&
 					student[j].spec == student[j - 1].spec &&
-					student[j].prizv < student[j - 1].prizv))
+					prizvOne < prizvTwo))
 			{
 				temp = student[j];
 				student[j] = student[j - 1];
@@ -534,7 +532,7 @@ void IndexSort(char* fname, char* gname) {
 	file.close();
 }
 
-int Search(char* fname, const string prizv, const Specialnist special, const int avarage) {
+int Search(char* fname) {
 	ifstream f(fname, ios::binary);
 	if (!f)
 	{
@@ -542,6 +540,18 @@ int Search(char* fname, const string prizv, const Specialnist special, const int
 		f.close();
 		return -1;
 	}
+	Specialnist special;
+	int ispec, avar;
+	string prizv;
+	cout << endl;
+	cout << "Введіть ключі пошуку: " << endl << endl;
+	cout << "cпеціальність (0 - комп. науки, 1 - мат і економ, 2 - інформ, 3 - фіз і інформ, 4 - труд. навч): ";
+	cin >> ispec;
+	special = (Specialnist)ispec;
+	cout << " прізвище: "; cin >> prizv;
+	cout << " середній бал студента: "; cin >> avar;
+	cout << endl;
+
 	f.seekg(0, ios::end); // курсор ставиться в кінець
 	int size = f.tellg(); // вказує місце де зараз знаходиться курсор і цим самим визначає величину файлу
 	size = size / sizeof(Student); // визначається кількість студентів
@@ -551,15 +561,16 @@ int Search(char* fname, const string prizv, const Specialnist special, const int
 	int L = 0, R = size, m;
 	do { // Бінарний пошук
 		m = (L + R) / 2;
-		if (student[m].prizv == prizv && student[m].spec == special && student[m].avarage == avarage) {
+		string OriginalPrizv = student[m].prizv;
+		if (OriginalPrizv == prizv && student[m].spec == special && student[m].avarage == avar) {
 			return m;
 		}
-		if ((student[m].avarage < avarage)
+		if ((student[m].avarage < avar)
 			||
-			(student[m].avarage == avarage &&
+			(student[m].avarage == avar &&
 				student[m].spec < special)
 			||
-			(student[m].avarage == avarage &&
+			(student[m].avarage == avar &&
 				student[m].spec == special &&
 				student[m].prizv < prizv)) {
 			L = m + 1;

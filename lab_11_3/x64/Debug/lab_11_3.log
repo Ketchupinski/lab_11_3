@@ -1,2 +1,11 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1889,5): warning : The referenced project '..\UnitTest1\UnitTest1.vcxproj' does not exist.
+  lab_11_3.cpp
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(228,65): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(244,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(260,71): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(276,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(292,68): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(457,11): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(498,11): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
+D:\git_repository\lab_11_3\lab_11_3\lab_11_3.cpp(556,11): warning C4244: инициализация: преобразование "std::streamoff" в "int", возможна потеря данных
   lab_11_3.vcxproj -> D:\git_repository\lab_11_3\x64\Debug\lab_11_3.exe
