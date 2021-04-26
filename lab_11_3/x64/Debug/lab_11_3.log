@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1889,5): warning : The referenced project '..\UnitTest1\UnitTest1.vcxproj' does not exist.
+  lab_11_3.vcxproj -> D:\git_repository\lab_11_3\x64\Debug\lab_11_3.exe

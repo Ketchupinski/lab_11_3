@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <errno.h>
 #include <iomanip>
 #include <string>
 #include <Windows.h>
